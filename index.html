@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Immersive Earth VR</title>
+    <!-- A-Frame library for VR -->
+    <script src="https://aframe.io/releases/1.4.0/aframe.min.js"></script>
+    <!-- Link to your CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- VR Scene -->
+    <a-scene background="color: #88ccee" vr-mode-ui="enabled: true">
+
+        <!-- Earth Globe -->
+        <a-sphere id="earth" radius="1.5" src="earth_texture.jpg" position="0 1.5 -3"></a-sphere>
+
+        <!-- Camera + Cursor -->
+        <a-entity camera look-controls>
+            <a-entity cursor="fuse: true; fuseTimeout: 500"
+                      position="0 0 -1"
+                      geometry="primitive: ring; radiusInner: 0.02; radiusOuter: 0.03"
+                      material="color: black; shader: flat">
+            </a-entity>
+        </a-entity>
+
+        <!-- Ocean sound for immersion -->
+        <a-sound src="ocean_waves.mp3" autoplay="true" loop="true" position="0 1.5 -3"></a-sound>
+
+    </a-scene>
+
+    <!-- JavaScript files -->
+    <script src="src/dataLoader.js"></script>
+    <script src="src/main.js"></script>
+    <script src="src/interactions.js"></script>
+</body>
+</html>
+
